@@ -5,6 +5,12 @@ interface PageProps {
   params: { id: string };
 }
 
+export async function generateStaticParams() {
+  const data = await fetch(`https://fakestoreapi.com/products`);
+  const products: FakeAPIProduct[] = await data.json();
+  return products.map((item) => ({ id: item.id.toString() }));
+}
+
 export default async function Page(props: PageProps) {
   const {
     params: { id },
