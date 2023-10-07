@@ -5,7 +5,7 @@ interface PageProps {
   params: { id: string };
 }
 
-export const Page = async (props: PageProps) => {
+export default async function Page(props: PageProps) {
   const {
     params: { id },
   } = props;
@@ -13,6 +13,4 @@ export const Page = async (props: PageProps) => {
   const product: FakeAPIProduct = await data.json();
 
   return <ProductInfo product={product} />;
-};
-
-export default Page;
+}

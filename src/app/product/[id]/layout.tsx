@@ -1,8 +1,5 @@
-import { ReactElement } from "react";
 import styles from "./layout.module.scss";
 
-export const Layout = (props: { children: ReactElement[] }) => {
-  return <div className={styles["container"]}>{props.children}</div>;
-};
-
-export default Layout;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <div className={styles["container"]}>{children}</div>;
+}
