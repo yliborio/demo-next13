@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export const Page = () => {
+export default function Page() {
   const [inputValue, setInputValue] = useState("");
   const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,6 +21,4 @@ export const Page = () => {
       <button onClick={handleClick}>Search</button>
     </div>
   );
-};
-
-export default Page;
+}
