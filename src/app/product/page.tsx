@@ -1,4 +1,4 @@
-import { ProductCard } from "core/components/product-card/product-card";
+import { ProductInfo } from "core/components/product-info/product-info";
 import { FakeAPIProduct } from "core/types/product";
 
 interface PageProps {
@@ -12,5 +12,5 @@ export default async function Page(props: PageProps) {
   const data = await fetch(`https://fakestoreapi.com/products/${id}`);
   const product: FakeAPIProduct = await data.json();
 
-  return <ProductCard product={product} />;
+  return <ProductInfo product={product} />;
 }
