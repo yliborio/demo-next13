@@ -1,40 +1,16 @@
-"use client";
+import { ProductCard } from "core/components/product-card/product-card";
+import { FakeAPIProduct } from "core/types/product";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import styles from "./page.module.scss";
+interface PageProps {
+  searchParams: { id: string };
+}
 
-export default function Page() {
-  const [inputValue, setInputValue] = useState("");
-  const router = useRouter();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
+export default async function Page(props: PageProps) {
+  const {
+    searchParams: { id },
+  } = props;
+  const data = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const product: FakeAPIProduct = await data.json();
 
-  const handleClick = () => {
-    router.push(`/product/${inputValue}`);
-  };
-
-  global?.window?.addEventListener("keydown", (event) => {
-    if (event?.code === "Enter") {
-      handleClick();
-    }
-  });
-
-  return (
-    <div className={styles["container"]}>
-      <span className={styles["title"]}>Search by product id</span>
-      <div className={styles["action"]}>
-        <input
-          className={styles["input"]}
-          id="product-id"
-          onChange={handleChange}
-          placeholder="Product ID"
-        />
-        <button className={styles["button"]} onClick={handleClick}>
-          Search
-        </button>
-      </div>
-    </div>
-  );
+  return <ProductCard product={product} />;
 }
