@@ -1,6 +1,6 @@
 import { FakeAPIProduct } from "core/types/product";
 import styles from "./page.module.scss";
-import { ProductInfo } from "core/components/product-info/product-info";
+import { ProductList } from "core/components/product-list/product-list";
 
 export default async function Home() {
   const data = await fetch(`https://fakestoreapi.com/products`);
@@ -8,13 +8,7 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
-      <ul>
-        {products.map((product) => (
-          <li>
-            <ProductInfo key={product.id} product={product} />
-          </li>
-        ))}
-      </ul>
+      <ProductList products={products} />
     </main>
   );
 }
