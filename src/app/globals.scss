@@ -1,0 +1,15 @@
+@import "../styles/variables.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  background-color: $bg-primary;
+  font-family: var("--font-inter");
+  max-width: 100vw;
+  overflow-x: hidden;
+}
