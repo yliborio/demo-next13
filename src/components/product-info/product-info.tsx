@@ -18,8 +18,8 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
       <img src={product?.image} alt="" className={styles["image"]} />
       <div className={styles["info"]}>
         <div className={styles["title"]}>{product.title}</div>
-        <span>Description:</span>
-        <div className={styles["description"]}>{product.description}</div>
+        <span className={styles["description"]}>Description:</span>
+        <div className={styles["content"]}>{product.description}</div>
         <button className={styles["button"]} onClick={handleChange}>
           <span>Add to Cart</span>
           <CartIcon />
