@@ -8,8 +8,6 @@ interface FilterStore {
     setOrder: (order : Order) => void,
 }
 
-
-
 export const useFilterStore = create<FilterStore>((set) => ({
   filter: "",
   order: Order.DEFAULT,

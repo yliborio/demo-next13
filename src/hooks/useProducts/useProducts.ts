@@ -1,23 +1,12 @@
 import { FakeAPIProduct } from "core/types/product";
 import { useFilterStore } from "../useFilter/useFilter";
-import { Order } from "core/types/order";
+import { getComparator } from "core/components/utils/getComparator";
+import {useDeferredValue} from "react"
 
 export const useProducts = (products: FakeAPIProduct[]) => {
     const { filter, order } = useFilterStore();
-    let filteredProducts =
-        filter != ""
-            ? products.filter((product) =>
-            product.title.toLowerCase().includes(filter.toLowerCase())
-            )
-            : products;
-
-    filteredProducts = order != Order.DEFAULT ? filteredProducts.sort((a, b) => {
-        if (order ===  Order.ASC) {
-            return a.price - b.price;
-        } else {
-            return b.price - a.price;
-        }
-    }) : filteredProducts;
-    
-    return filteredProducts;
+    const filterDeferred = useDeferredValue(filter);
+    return products.filter((product) =>
+    product.title.toLowerCase().includes(filterDeferred.toLowerCase())
+    ).sort((a, b) => getComparator(order)(a,b));
 }
