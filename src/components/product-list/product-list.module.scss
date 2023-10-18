@@ -1,7 +1,15 @@
+@import "../../styles/variables.scss";
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 256px);
-  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
   grid-gap: 2rem;
-  max-width: 100%;
+  max-width: 90vw;
+
+  .empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-2;
+  }
 }
