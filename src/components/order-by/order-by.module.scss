@@ -9,8 +9,9 @@
   .orderby {
     display: flex;
     justify-content: center;
-
-    padding-right: 5rem;
+    cursor: pointer;
+    margin-right: 3rem;
+    width: max-content;
   }
 
   .modal {
