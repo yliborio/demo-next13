@@ -7,7 +7,11 @@ import Loading from "./loading";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles["container"]}>
-      <Link className={styles["back"]} href={"/"}>
+      <Link
+        className={styles["back"]}
+        href={"/"}
+        aria-label="back to home page"
+      >
         <BackIcon />
       </Link>
       <Suspense fallback={<Loading />}>{children}</Suspense>
