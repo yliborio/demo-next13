@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styles from "./layout.module.scss";
 import { BackIcon } from "core/components/icons/back-button";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Link className={styles["back"]} href={"/"}>
         <BackIcon />
       </Link>
-      {children}
+      <Suspense fallback={<Loading />}>{children}</Suspense>
     </div>
   );
 }

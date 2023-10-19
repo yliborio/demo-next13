@@ -22,7 +22,6 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
         sizes="100vw"
         width={0}
         height={0}
-        quality={100}
         className={styles["image"]}
       />
       <div className={styles["info"]}>

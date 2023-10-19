@@ -1,9 +1,21 @@
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import styles from "./loading.module.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default async function Loading() {
   return (
-    <div>
-      <Skeleton count={5} />
-    </div>
+    <SkeletonTheme baseColor="darkgrey" height={"350px"}>
+      <div className={styles["container"]}>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </div>
+    </SkeletonTheme>
   );
 }
