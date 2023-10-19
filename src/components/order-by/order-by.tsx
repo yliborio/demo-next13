@@ -5,14 +5,39 @@ import { ArrowDownIcon } from "../icons/arrow-down";
 import { useFilterStore } from "core/hooks/useFilter/useFilter";
 import { Order } from "core/types/order";
 
+interface OrderOptionProps {
+  label: string;
+  onClick: () => void;
+}
+
+const OrderOption = ({ label, onClick }: OrderOptionProps) => (
+  <li>
+    <a
+      tabIndex={0}
+      role="button"
+      onClick={onClick}
+      onKeyDown={(evt) => evt.code === "Enter" && onClick()}
+    >
+      {label}
+    </a>
+  </li>
+);
+
 export const OrderBy = () => {
   const [showModal, setShowModal] = useState(false);
   const { setOrder } = useFilterStore();
 
-  const handleChange = (order: Order) => {
+  const handleOptionClick = (order: Order) => {
     setOrder(order);
     setShowModal(false);
   };
+
+  const orderOptions = [
+    { order: Order.DEFAULT, label: "Featured" },
+    { order: Order.ASC, label: "Price: Low to High" },
+    { order: Order.DSC, label: "Price: High to Low" },
+    { order: Order.RATING, label: "Avg. Customer Review" },
+  ];
 
   return (
     <div className={styles["container"]}>
@@ -29,54 +54,13 @@ export const OrderBy = () => {
       {showModal && (
         <div className={styles["modal"]}>
           <ul>
-            <li>
-              <a
-                tabIndex={0}
-                role="button"
-                onClick={() => handleChange(Order.DEFAULT)}
-                onKeyDown={(evt) =>
-                  evt.code === "Enter" && handleChange(Order.DEFAULT)
-                }
-              >
-                Featured
-              </a>
-            </li>
-            <li>
-              <a
-                tabIndex={0}
-                role="button"
-                onClick={() => handleChange(Order.ASC)}
-                onKeyDown={(evt) =>
-                  evt.code === "Enter" && handleChange(Order.ASC)
-                }
-              >
-                Price: Low to High
-              </a>
-            </li>
-            <li>
-              <a
-                tabIndex={0}
-                role="button"
-                onClick={() => handleChange(Order.DSC)}
-                onKeyDown={(evt) =>
-                  evt.code === "Enter" && handleChange(Order.DSC)
-                }
-              >
-                Price: High to Low
-              </a>
-            </li>
-            <li>
-              <a
-                tabIndex={0}
-                role="button"
-                onClick={() => handleChange(Order.RATING)}
-                onKeyDown={(evt) =>
-                  evt.code === "Enter" && handleChange(Order.RATING)
-                }
-              >
-                Avg. Customer Review
-              </a>
-            </li>
+            {orderOptions.map(({ order, label }) => (
+              <OrderOption
+                key={order}
+                label={label}
+                onClick={() => handleOptionClick(order)}
+              />
+            ))}
           </ul>
         </div>
       )}
