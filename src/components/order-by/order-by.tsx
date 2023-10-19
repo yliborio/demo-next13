@@ -19,6 +19,9 @@ export const OrderBy = () => {
       <div
         className={styles["orderby"]}
         onClick={() => setShowModal(!showModal)}
+        onKeyDown={(evt) => evt.code === "Enter" && setShowModal(!showModal)}
+        role="button"
+        tabIndex={0}
       >
         <span>Order by</span>
         <ArrowDownIcon />
@@ -31,6 +34,9 @@ export const OrderBy = () => {
                 tabIndex={0}
                 role="button"
                 onClick={() => handleChange(Order.DEFAULT)}
+                onKeyDown={(evt) =>
+                  evt.code === "Enter" && handleChange(Order.DEFAULT)
+                }
               >
                 Featured
               </a>
@@ -40,6 +46,9 @@ export const OrderBy = () => {
                 tabIndex={0}
                 role="button"
                 onClick={() => handleChange(Order.ASC)}
+                onKeyDown={(evt) =>
+                  evt.code === "Enter" && handleChange(Order.ASC)
+                }
               >
                 Price: Low to High
               </a>
@@ -49,6 +58,9 @@ export const OrderBy = () => {
                 tabIndex={0}
                 role="button"
                 onClick={() => handleChange(Order.DSC)}
+                onKeyDown={(evt) =>
+                  evt.code === "Enter" && handleChange(Order.DSC)
+                }
               >
                 Price: High to Low
               </a>
@@ -58,6 +70,9 @@ export const OrderBy = () => {
                 tabIndex={0}
                 role="button"
                 onClick={() => handleChange(Order.RATING)}
+                onKeyDown={(evt) =>
+                  evt.code === "Enter" && handleChange(Order.RATING)
+                }
               >
                 Avg. Customer Review
               </a>
