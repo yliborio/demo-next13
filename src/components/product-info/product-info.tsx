@@ -3,15 +3,16 @@ import { FakeAPIProduct } from "core/types/product";
 import styles from "./product-info.module.scss";
 import { CartIcon } from "../icons/cart-icon";
 import Image from "next/image";
+import { useCart } from "core/hooks/useCart/useCart";
 
 interface ProductInfoProps {
   product: FakeAPIProduct;
 }
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
+  const { addProduct } = useCart();
   const handleChange = () => {
-    window.alert("Not implemented yet!");
-    4;
+    addProduct(product);
   };
 
   return (
@@ -30,7 +31,7 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
         <div className={styles["content"]}>{product.description}</div>
         <button className={styles["button"]} onClick={handleChange}>
           <span>Add to Cart</span>
-          <CartIcon />
+          <CartIcon fillColor="white" />
         </button>
       </div>
     </div>
