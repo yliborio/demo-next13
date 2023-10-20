@@ -4,6 +4,7 @@ import styles from "./product-info.module.scss";
 import { CartIcon } from "../icons/cart-icon";
 import Image from "next/image";
 import { useCart } from "core/hooks/useCart/useCart";
+import { useRouter } from "next/navigation";
 
 interface ProductInfoProps {
   product: FakeAPIProduct;
@@ -11,8 +12,11 @@ interface ProductInfoProps {
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
   const { addProduct } = useCart();
+  const router = useRouter();
+
   const handleChange = () => {
     addProduct(product);
+    router.push("/cart");
   };
 
   return (
@@ -29,10 +33,13 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
         <div className={styles["title"]}>{product.title}</div>
         <span className={styles["description"]}>Description:</span>
         <div className={styles["content"]}>{product.description}</div>
-        <button className={styles["button"]} onClick={handleChange}>
-          <span>Add to Cart</span>
-          <CartIcon fillColor="white" />
-        </button>
+        <div className={styles["action"]}>
+          <span className={styles["price"]}>{`$${product.price}`} </span>
+          <button className={styles["button"]} onClick={handleChange}>
+            <span>Add to Cart</span>
+            <CartIcon fillColor="white" />
+          </button>
+        </div>
       </div>
     </div>
   );

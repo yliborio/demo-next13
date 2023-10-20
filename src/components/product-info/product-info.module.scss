@@ -57,24 +57,35 @@
       border-radius: 8px;
       font-size: $font-size-3;
     }
-
-    .button {
+    .action {
       display: flex;
       flex-direction: row;
+      width: 100%;
+      gap: 1rem;
       justify-content: space-between;
-
-      align-items: center;
-      > svg {
-        width: 24px;
+      .price {
+        font-size: $font-size-2;
+        font-weight: 600;
       }
 
-      gap: 1rem;
-      text-transform: uppercase;
-      cursor: pointer;
-      padding: 10px 50px;
-      border: none;
-      background-color: black;
-      color: $bg-secondary;
+      .button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        align-items: center;
+        > svg {
+          width: 24px;
+        }
+
+        gap: 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 10px 30px;
+        border: none;
+        background-color: black;
+        color: $bg-secondary;
+      }
     }
   }
 }

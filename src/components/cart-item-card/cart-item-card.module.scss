@@ -1,0 +1,41 @@
+@import "./../../styles/variables.scss";
+.container {
+  display: flex;
+
+  margin: 1rem 3rem;
+  padding: 1rem;
+  border-radius: 8px;
+  flex-direction: row;
+  background-color: $bg-secondary;
+
+  .image {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      width: auto;
+      height: 150px;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: $font-size-3;
+    .title,
+    .price {
+      font-size: $font-size-2;
+      font-weight: 600;
+    }
+    .button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      color: rgb(193, 49, 49);
+      width: fit-content;
+    }
+  }
+}

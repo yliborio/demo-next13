@@ -37,7 +37,7 @@ export const useCart = () => {
         if(storageProduct){            
             const newValue: CartItems =  { 
                 items: [...items.filter((p) => p.id !== product.id )],
-                total: total + product.price
+                total: total - product.price
             }
             updateCart(newValue)            
         }       
