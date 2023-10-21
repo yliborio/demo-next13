@@ -13,16 +13,18 @@ export const useCart = () => {
 
 
     const getCartProducts = async () => {
-
-        const products = (await Promise.all(
-            cart.items.map(async (item) => {
-              const data = await fetch(`https://fakestoreapi.com/products/${item.id}`);
-              const product = await data.json();
-              const quantity = item.quantity;
-              return { product, quantity };
-            }))).sort((a,b) => a.product.id - b.product.id);
+        const data = await fetch(`https://fakestoreapi.com/products`);
         
-        return products;
+
+        const idToQtdMap: Record<number, number> = {};
+        for (const item of items) {
+            idToQtdMap[item.id] = item.quantity;
+        }
+        const productData : FakeAPIProduct[]= await data.json();
+        return  productData
+            .filter((p : FakeAPIProduct) => idToQtdMap.hasOwnProperty(p.id))
+            .map((product) => ({ product, quantity: idToQtdMap[product.id]}))
+            .sort((a,b) => a.product?.id - b?.product?.id);
     }
 
     const addProduct = (product : FakeAPIProduct) => {
