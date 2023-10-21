@@ -9,7 +9,7 @@ export const Summary = () => {
 
   const text = items?.length > 1 ? " products" : " product";
   return (
-    <div className={styles["container"]}>
+    <div className={styles["container"]} data-testid="summary">
       <span>{`Subtotal (${items.length} ${text}): `} </span>
       <span>{`$${total}`} </span>
     </div>

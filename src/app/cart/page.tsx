@@ -3,7 +3,7 @@
 import { CartItemCard } from "core/components/cart-item-card/cart-item-card";
 import styles from "./page.module.scss";
 import { Summary } from "core/components/summary/summary";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 
 export default async function Page() {
   const { getCartProducts } = useCart();
@@ -27,7 +27,7 @@ export default async function Page() {
           </div>
         </>
       ) : (
-        <h1>empty cart</h1>
+        <h1> Empty cart </h1>
       )}
     </div>
   );

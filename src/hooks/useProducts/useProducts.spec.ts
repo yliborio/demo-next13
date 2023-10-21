@@ -18,7 +18,6 @@ describe("useProducts", () => {
     
     const { result } = renderHook(() => useProducts(products as any));
 
-    
     const filteredProducts = result.current;
   
     expect(filteredProducts).toEqual([

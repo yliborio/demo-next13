@@ -4,6 +4,7 @@ exports[`CartItemCard Component should render a cart item card with correct prod
 <DocumentFragment>
   <div
     class="container"
+    data-testid="cart-item-card"
   >
     <div
       class="image"
