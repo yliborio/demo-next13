@@ -31,7 +31,8 @@ export const useCart = () => {
         const storageProduct = items.find((item) => item.id === product.id );  
         if(storageProduct){            
             const newValue: CartItems =  { 
-                items: [...items.filter((p) => p.id !== product.id ), {id: product.id, quantity: storageProduct.quantity + 1}],                
+                items: [...items.filter((p) => p.id !== product.id ),
+                    {id: product.id, quantity: storageProduct.quantity + 1}],                
                 total: currency(total).add(product.price)
             }
             updateCart(newValue)            
