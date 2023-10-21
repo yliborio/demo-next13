@@ -10,10 +10,11 @@ interface CartItemCardProps {
 }
 
 export const CartItemCard = ({ product, quantity }: CartItemCardProps) => {
-  const { removeProduct } = useCart();
+  const { removeProduct, addProduct, removeQuantity } = useCart();
   const handleChange = () => {
     removeProduct(product);
   };
+
   return (
     <div className={styles["container"]}>
       <div className={styles["image"]}>
@@ -25,7 +26,12 @@ export const CartItemCard = ({ product, quantity }: CartItemCardProps) => {
         <button className={styles["button"]} onClick={handleChange}>
           Remove
         </button>
-        <span>{`Quantity: ${quantity}`}</span>
+        <div className={styles["quantity"]}>
+          <span>Quantity:</span>
+          <button onClick={() => removeQuantity(product)}>-</button>
+          <span>{`${quantity}`}</span>
+          <button onClick={() => addProduct(product)}>+</button>
+        </div>
       </div>
     </div>
   );

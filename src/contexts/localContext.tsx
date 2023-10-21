@@ -1,6 +1,7 @@
 "use client";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { CartItems } from "../types/cartItem";
+import currency from "currency.js";
 
 interface LocalContextProps {
   cart: CartItems;
@@ -8,8 +9,8 @@ interface LocalContextProps {
 }
 
 export const LocalContext = createContext<LocalContextProps>({
-  cart: { items: [], total: 0 },
-  updateCart: (cart: CartItems) => {},
+  cart: { items: [], total: currency(0) },
+  updateCart: () => {},
 });
 
 interface LocalContextProviderProps {
@@ -19,7 +20,10 @@ interface LocalContextProviderProps {
 export const LocalContextProvider = ({
   children,
 }: LocalContextProviderProps) => {
-  const [cart, setCart] = useState<CartItems>({ items: [], total: 0 });
+  const [cart, setCart] = useState<CartItems>({
+    items: [],
+    total: currency(0),
+  });
 
   useEffect(() => {
     if (window === undefined) return;
