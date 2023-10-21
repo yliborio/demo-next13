@@ -4,6 +4,8 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Loading from "./loading";
+import { LocalContextProvider } from "core/contexts/localContext";
+import Home from "./page";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -20,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Suspense fallback={<Loading />}>
+        <LocalContextProvider>
           <Header />
-          {children}
-        </Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </LocalContextProvider>
       </body>
     </html>
   );
