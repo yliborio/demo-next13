@@ -2,6 +2,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { CartItems } from "../types/cartItem";
 import currency from "currency.js";
+import { checkIfSSR } from "core/utils/checkIfSSR";
 
 interface LocalContextProps {
   cart: CartItems;
@@ -26,7 +27,7 @@ export const LocalContextProvider = ({
   });
 
   useEffect(() => {
-    if (window === undefined) return;
+    if (checkIfSSR()) return;
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
