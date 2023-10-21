@@ -1,6 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import Page from "./page"; // Replace with the correct path to your component
+import Page from "./page";
 import * as cartHook from "../../hooks/useCart/useCart";
 
 jest.mock("../../hooks/useCart/useCart");

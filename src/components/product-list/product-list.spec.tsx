@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { ProductList } from "./product-list"; // Import your ProductList component
+import { ProductList } from "./product-list";
 import { FakeAPIProduct } from "core/types/product";
 
 describe("ProductList", () => {

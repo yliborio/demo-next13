@@ -1,6 +1,6 @@
 
 
-import { checkIfSSR } from './checkIfSSR'; // Import your module
+import { checkIfSSR } from './checkIfSSR';
 
 
 describe('checkIfSSR', () => {

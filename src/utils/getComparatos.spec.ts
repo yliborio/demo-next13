@@ -1,4 +1,4 @@
-import { getComparator } from './getComparator'; // Import your module
+import { getComparator } from './getComparator';
 import { Order } from 'core/types/order';
 
 describe('getComparator', () => {

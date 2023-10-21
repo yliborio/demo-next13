@@ -1,6 +1,6 @@
 import React from "react";
 import { act, render, screen } from "@testing-library/react";
-import { LocalContextProvider, LocalContext } from "./local-context"; // Import your component
+import { LocalContextProvider, LocalContext } from "./local-context";
 import "@testing-library/jest-dom";
 import currency from "currency.js";
 import * as check from "../utils/checkIfSSR";
@@ -61,7 +61,7 @@ describe("LocalContextProvider", () => {
     act(() => updateCartButton.click()); // Simulate updating the cart
 
     const updatedCartItems = screen.getByTestId("cart-items");
-    expect(updatedCartItems).toHaveTextContent("2"); // After the update, there should be one item in the cart
+    expect(updatedCartItems).toHaveTextContent("2"); // After the update, there should be 2 items in the cart
   });
 
   it("ssr rendering test", () => {

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import { useProducts } from "./useProducts"; // Import your useProducts function
-import { Order } from "core/types/order";
+import { useProducts } from "./useProducts";
+
 
 
 const products = [

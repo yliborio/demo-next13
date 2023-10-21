@@ -1,6 +1,5 @@
-import React from "react";
 import { render, screen, waitFor, act } from "@testing-library/react";
-import Home from "./page"; // Replace with the correct path to your component
+import Home from "./page";
 
 global.fetch = jest.fn(() =>
   Promise.resolve({

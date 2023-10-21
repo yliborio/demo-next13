@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { ProductInfo } from "./product-info"; // Import your ProductInfo component
+import { ProductInfo } from "./product-info";
 import { FakeAPIProduct } from "core/types/product";
 
 const mockPush = jest.fn();

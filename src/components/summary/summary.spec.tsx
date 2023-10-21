@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Summary } from "./summary"; // Import your Summary component
+import { Summary } from "./summary";
 import * as cartHook from "../../hooks/useCart/useCart";
 
 jest.mock("../../hooks/useCart/useCart");

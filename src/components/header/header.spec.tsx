@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Header } from "./header"; // Import your Header component
+import { Header } from "./header";
 
 test("Header renders correctly", () => {
   const { getByText, getByTestId } = render(<Header />);

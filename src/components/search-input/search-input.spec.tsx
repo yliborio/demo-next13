@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { SearchInput } from "./search-input"; // Import your SearchInput component
+import { SearchInput } from "./search-input";
 
 const mockSetFilter = jest.fn();
 jest.mock("../../hooks/useFilter/useFilter", () => {
