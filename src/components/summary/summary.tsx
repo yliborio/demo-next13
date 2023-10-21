@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 import styles from "./summary.module.scss";
 
 export const Summary = () => {
@@ -9,7 +9,7 @@ export const Summary = () => {
 
   const text = items?.length > 1 ? " products" : " product";
   return (
-    <div className={styles["container"]}>
+    <div className={styles["container"]} data-testid="summary">
       <span>{`Subtotal (${items.length} ${text}): `} </span>
       <span>{`$${total}`} </span>
     </div>

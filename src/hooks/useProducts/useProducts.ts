@@ -1,6 +1,6 @@
 import { FakeAPIProduct } from "core/types/product";
 import { useFilterStore } from "../useFilter/useFilter";
-import { getComparator } from "core/components/utils/getComparator";
+import { getComparator } from "core/utils/getComparator";
 import {useDeferredValue} from "react"
 
 export const useProducts = (products: FakeAPIProduct[]) => {

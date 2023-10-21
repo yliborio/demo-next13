@@ -4,8 +4,7 @@ import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Loading from "./loading";
-import { LocalContextProvider } from "core/contexts/localContext";
-import Home from "./page";
+import { LocalContextProvider } from "core/contexts/local-context";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 

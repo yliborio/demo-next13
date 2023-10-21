@@ -3,7 +3,7 @@
 import { FakeAPIProduct } from "core/types/product";
 import { CartItems } from "core/types/cartItem";
 import { useContext } from "react";
-import { LocalContext } from "core/contexts/localContext";
+import { LocalContext } from "core/contexts/local-context";
 import currency from "currency.js";
 
 export const useCart = () => {    
@@ -15,7 +15,6 @@ export const useCart = () => {
     const getCartProducts = async () => {
         const data = await fetch(`https://fakestoreapi.com/products`);
         
-
         const idToQtdMap: Record<number, number> = {};
         for (const item of items) {
             idToQtdMap[item.id] = item.quantity;
@@ -48,7 +47,7 @@ export const useCart = () => {
 
     const removeProduct = (product : FakeAPIProduct) => {
         const storageProduct = items.find((item) => item.id === product.id );  
-        if(storageProduct){            
+        if(storageProduct){    
             const newValue: CartItems =  { 
                 items: [...items.filter((p) => p.id !== product.id )],
                 total: currency(total).subtract(product.price * storageProduct.quantity)

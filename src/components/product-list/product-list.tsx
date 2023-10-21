@@ -5,7 +5,7 @@ import { ProductCard } from "../product-card/product-card";
 import styles from "./product-list.module.scss";
 
 import { useProducts } from "core/hooks/useProducts/useProducts";
-import { useEffect } from "react";
+
 interface ProductListProps {
   products: FakeAPIProduct[];
 }

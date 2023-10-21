@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -15,11 +15,15 @@ export default function LoadingCart() {
       <div className={styles["container"]}>
         <div className={styles["items"]}>
           {items.map((item) => (
-            <Skeleton key={item.id} height={150} />
+            <Skeleton
+              key={item.id}
+              height={150}
+              containerTestId="skeleton-item"
+            />
           ))}
         </div>
         <div className={styles["summary"]}>
-          <Skeleton height={100} />
+          <Skeleton height={100} containerTestId="skeleton-summary" />
         </div>
       </div>
     </SkeletonTheme>

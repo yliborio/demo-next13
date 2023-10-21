@@ -2,7 +2,7 @@ import { FakeAPIProduct } from "core/types/product";
 import Image from "next/image";
 
 import styles from "./cart-item-card.module.scss";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 
 interface CartItemCardProps {
   product: FakeAPIProduct;
@@ -16,7 +16,7 @@ export const CartItemCard = ({ product, quantity }: CartItemCardProps) => {
   };
 
   return (
-    <div className={styles["container"]}>
+    <div className={styles["container"]} data-testid="cart-item-card">
       <div className={styles["image"]}>
         <Image alt="" src={product.image} sizes="100vw" width={0} height={0} />
       </div>

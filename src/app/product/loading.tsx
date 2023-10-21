@@ -1,7 +1,7 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-export default async function Loading() {
+export default function Loading() {
   return (
     <div
       style={{
