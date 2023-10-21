@@ -8,9 +8,15 @@ export const Cart = () => {
   const { cart } = useCart();
 
   return (
-    <Link className={styles["container"]} href="/cart">
+    <Link
+      className={styles["container"]}
+      href="/cart"
+      data-testid="cart-component"
+    >
       {cart.items.length > 0 && (
-        <span className={styles["notification"]}>{cart.items?.length}</span>
+        <span className={styles["notification"]} data-testid="notification">
+          {cart.items?.length}
+        </span>
       )}
       <CartIcon />
     </Link>

@@ -2,7 +2,7 @@ import { FakeAPIProduct } from "core/types/product";
 import Image from "next/image";
 
 import styles from "./cart-item-card.module.scss";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 
 interface CartItemCardProps {
   product: FakeAPIProduct;

@@ -3,7 +3,7 @@ import { FakeAPIProduct } from "core/types/product";
 import styles from "./product-info.module.scss";
 import { CartIcon } from "../icons/cart-icon";
 import Image from "next/image";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 import { useRouter } from "next/navigation";
 
 interface ProductInfoProps {

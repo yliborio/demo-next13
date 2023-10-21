@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "core/hooks/useCart/useCart";
+import { useCart } from "../../hooks/useCart/useCart";
 import styles from "./summary.module.scss";
 
 export const Summary = () => {
