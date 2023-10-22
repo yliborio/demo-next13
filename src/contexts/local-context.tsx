@@ -35,8 +35,8 @@ export const LocalContextProvider = ({
   }, []);
 
   const updateCart = (cart: CartItems) => {
-    localStorage.setItem("cart", JSON.stringify(cart));
     setCart(cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   return (
